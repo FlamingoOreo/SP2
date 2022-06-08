@@ -1,0 +1,30 @@
+CREATE DATABASE VAULT;
+
+USE VAULT;
+
+CREATE TABLE PasswordVault
+(userid INT(10) not null auto_increment,
+username varchar(30) default null,
+password varchar(100) default null unique,
+details varchar(100) default null,
+primary key(userid)
+) engine = innodb default charset = latin1;
+
+
+
+
+
+*********** used for creating queries/commands in the python code ***************
+
+update passwordvault set password = AES_ENCRYPT("%s","123123") where username = "%s" and details = "%s";
+
+
+
+insert into passwordvault (username,password,details)
+values ("Test_Username", aes_encrypt("test_password", "123123"), "Discord");
+
+
+insert into passwordvault (username,password,details)
+values (%s, aes_encrypt(%s, %s, %s);
+
+select userid,username, cast(aes_decrypt(password,'123123') as char(100)),details from Passwordvault where username = "David";
